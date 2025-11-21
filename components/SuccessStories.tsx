@@ -1,113 +1,85 @@
 import React from "react";
-import { ArrowRight, Minus } from "lucide-react";
+import { ClipboardList, HelpCircle, Search, PenTool, UserCheck, ChevronDown } from "lucide-react";
 
 const SuccessStories: React.FC = () => {
+  const steps = [
+    { icon: ClipboardList, title: "Анализ материалов", desc: "Мы оцениваем перспективы и целесообразность экспертизы на основе ваших данных." },
+    { icon: HelpCircle, title: "Формулировка вопросов", desc: "Помогаем составить корректные вопросы для эксперта, которые примет суд." },
+    { icon: Search, title: "Проведение исследования", desc: "Работа с человеком или материалами в строгом соответствии с методикой." },
+    { icon: PenTool, title: "Подготовка заключения", desc: "Оформление официального документа с дипломами и подпиской об ответственности." },
+    { icon: UserCheck, title: "Поддержка в суде", desc: "При необходимости эксперт разъяснит свои выводы в судебном заседании." }
+  ];
+
   return (
     <div className="z-10 relative w-full max-w-7xl mx-auto px-6 md:px-10 py-24 lg:py-32 border-t border-white/5">
-      <div className="flex flex-col md:flex-row justify-between md:items-end mb-20 gap-8">
-        <h2 className="text-5xl md:text-6xl font-medium tracking-tighter text-white animate-fade-slide-in" style={{ animationDelay: "0.2s" }}>
-          Success Stories
-        </h2>
-        <div className="flex items-center gap-2 text-sm font-medium text-neutral-500 mb-1 animate-fade-slide-in" style={{ animationDelay: "0.3s" }}>
-          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-          <span className="uppercase tracking-widest text-xs">Case Studies</span>
+      
+      {/* Process Section */}
+      <div className="mb-32">
+        <div className="flex flex-col md:flex-row justify-between md:items-end mb-20 gap-8">
+          <h2 className="text-5xl md:text-6xl font-medium tracking-tighter text-white animate-fade-slide-in" style={{ animationDelay: "0.2s" }}>
+            Этапы работы
+          </h2>
+          <div className="flex items-center gap-2 text-sm font-medium text-neutral-500 mb-1 animate-fade-slide-in" style={{ animationDelay: "0.3s" }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+            <span className="uppercase tracking-widest text-xs">Процесс</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 border-t border-white/5 pt-12">
+          {steps.map((step, idx) => (
+            <div key={idx} className="flex flex-col gap-4 group animate-fade-slide-in" style={{ animationDelay: `${0.2 + idx * 0.1}s` }}>
+               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-black transition-colors duration-300">
+                 <step.icon className="w-5 h-5" />
+               </div>
+               <h4 className="text-lg font-semibold text-white">{step.title}</h4>
+               <p className="text-sm text-neutral-500 leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className="flex flex-col w-full border-t border-white/5">
-        {/* Fintech */}
-        <div className="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-8 pb-8 gap-x-6 gap-y-6 items-center">
-            <div className="col-span-1 md:col-span-3">
-              <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 group-hover:text-white transition-colors">Fintech</span>
-            </div>
-            <div className="col-span-1 md:col-span-8 flex items-center gap-3">
-               <div className="h-6 w-8 bg-white/20 rounded flex items-center justify-center"><div className="w-4 h-[2px] bg-white"></div></div>
-               <span className="text-lg font-semibold tracking-tight text-white">Midday Financial</span>
-            </div>
-            <div className="col-span-1 flex justify-end">
-               <ArrowRight className="w-6 h-6 text-neutral-600 group-hover:text-white transition-colors" />
-            </div>
-          </div>
+      {/* FAQ Section */}
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+           <h2 className="text-4xl font-medium tracking-tighter text-white mb-4">Частые вопросы</h2>
+           <p className="text-neutral-500">Юридические тонкости простыми словами</p>
         </div>
 
-        {/* Infrastructure */}
-        <div className="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-8 pb-8 gap-x-6 gap-y-6 items-center">
-            <div className="col-span-1 md:col-span-3">
-              <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 group-hover:text-white transition-colors">Infrastructure</span>
+        <div className="space-y-4">
+          <details className="group bg-white/5 border border-white/5 rounded-xl overflow-hidden transition-all duration-300 open:bg-white/10">
+            <summary className="flex justify-between items-center cursor-pointer p-6 font-medium text-white">
+              В чем разница между "заключением специалиста" и "судебной экспертизой"?
+              <ChevronDown className="w-5 h-5 text-neutral-500 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-400 text-sm leading-relaxed">
+              <strong className="text-white">Заключение специалиста</strong> заказывается вами в частном порядке (до суда или во время). Оно приобщается к делу по ходатайству. 
+              <br className="mb-2 block"/>
+              <strong className="text-white">Судебная экспертиза</strong> назначается определением суда или постановлением следователя. Мы проводим оба вида исследований.
             </div>
-             <div className="col-span-1 md:col-span-8 flex items-center gap-3">
-               <div className="h-5 w-5 border-2 border-white transform rotate-45"></div>
-               <span className="text-lg font-semibold tracking-tight text-white">Vercel</span>
+          </details>
+
+          <details className="group bg-white/5 border border-white/5 rounded-xl overflow-hidden transition-all duration-300 open:bg-white/10">
+            <summary className="flex justify-between items-center cursor-pointer p-6 font-medium text-white">
+              Что делать, если суд уже назначил экспертизу в другом месте, и мы не согласны?
+              <ChevronDown className="w-5 h-5 text-neutral-500 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-400 text-sm leading-relaxed">
+              Вы можете заказать у нас <strong className="text-white">рецензию</strong> на заключение стороннего эксперта. Мы проверим его на наличие методических и процессуальных ошибок. Качественная рецензия — это основание для назначения повторной экспертизы.
             </div>
-            <div className="col-span-1 flex justify-end">
-              <ArrowRight className="w-6 h-6 text-neutral-600 group-hover:text-white transition-colors" />
+          </details>
+
+          <details className="group bg-white/5 border border-white/5 rounded-xl overflow-hidden transition-all duration-300 open:bg-white/10">
+            <summary className="flex justify-between items-center cursor-pointer p-6 font-medium text-white">
+              Гарантируете ли вы нужный мне результат?
+              <ChevronDown className="w-5 h-5 text-neutral-500 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-400 text-sm leading-relaxed">
+              Эксперт по закону обязан быть независимым. Мы не можем гарантировать выводы до проведения исследования — это уголовно наказуемо. Но мы гарантируем, что проведем исследование тщательно, профессионально и учтем все факты, которые могут говорить в вашу пользу.
             </div>
-          </div>
+          </details>
         </div>
-
-        {/* Expanded Item: Productivity */}
-        <div className="border-white/5 border-b relative">
-          <div className="grid grid-cols-1 md:grid-cols-12 cursor-pointer pt-8 pb-8 gap-x-6 gap-y-6 items-start">
-             <div className="col-span-1 md:col-span-3 flex flex-col gap-1">
-               <span className="text-xs font-semibold tracking-widest uppercase text-orange-500">Productivity</span>
-               <span className="text-[10px] font-medium text-neutral-500">48 Workflows Optimized</span>
-             </div>
-             <div className="col-span-1 md:col-span-8 flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full border border-white flex items-center justify-center"><div className="w-1 h-1 bg-white rounded-full"></div></div>
-                <span className="text-lg font-semibold tracking-tight text-white">Linear Systems</span>
-             </div>
-             <div className="col-span-1 flex justify-end">
-               <Minus className="w-6 h-6 text-white" />
-             </div>
-          </div>
-
-          {/* Details */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 pb-12 gap-x-8 gap-y-8">
-             <div className="hidden md:block col-span-3 relative">
-                <div className="absolute right-8 top-0 bottom-4 w-px bg-gradient-to-b from-white/10 to-transparent"></div>
-             </div>
-             <div className="col-span-1 md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-8 pr-4 pl-4 md:pl-0">
-                <div className="flex flex-col gap-3">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">Challenge</span>
-                  <p className="text-sm leading-relaxed text-neutral-300">
-                    Internal fragmentation led to <span className="text-white font-medium">siloed decision-making</span> and slower release cycles across distributed engineering teams.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-3">
-                   <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">Solution</span>
-                   <p className="text-sm leading-relaxed text-neutral-300">
-                     Deployed Lumina's collaborative engine to synchronize <span className="text-white font-medium">asset pipelines</span> and automate status reporting in real-time.
-                   </p>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">Result</span>
-                  <p className="text-sm leading-relaxed text-neutral-300">
-                    Achieved a <span className="text-orange-400 font-semibold">40% reduction</span> in meeting times and doubled the velocity of feature shipments within Q3.
-                  </p>
-                </div>
-             </div>
-          </div>
-        </div>
-
-        {/* Database */}
-        <div className="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer">
-           <div className="grid grid-cols-1 md:grid-cols-12 pt-8 pb-8 gap-x-6 gap-y-6 items-center">
-             <div className="col-span-1 md:col-span-3">
-               <span className="text-xs font-semibold tracking-widest uppercase text-neutral-500 group-hover:text-white transition-colors">Database</span>
-             </div>
-             <div className="col-span-1 md:col-span-8 flex items-center gap-3">
-               <div className="w-6 h-6 bg-emerald-500 rounded-sm opacity-80"></div>
-               <span className="text-lg font-semibold tracking-tight text-white">Supabase</span>
-             </div>
-             <div className="col-span-1 flex justify-end">
-               <ArrowRight className="w-6 h-6 text-neutral-600 group-hover:text-white transition-colors" />
-             </div>
-           </div>
-        </div>
-
       </div>
+
     </div>
   );
 };

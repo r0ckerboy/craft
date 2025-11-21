@@ -1,4 +1,5 @@
 import React from "react";
+import { Scale } from "lucide-react";
 
 const Navbar: React.FC = () => {
   return (
@@ -6,15 +7,15 @@ const Navbar: React.FC = () => {
       <div className="flex items-center gap-3 group cursor-pointer">
         <div className="relative flex bg-gradient-to-tr from-orange-500 to-amber-500 w-8 h-8 rounded-full items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-white/20 rounded-full"></div>
-          <div className="w-2.5 h-2.5 bg-black rounded-full relative z-10"></div>
+          <Scale className="w-4 h-4 text-black relative z-10" />
         </div>
         <span className="text-lg font-semibold tracking-tight text-white">
-          Lumina
+          Экспертиза<span className="text-neutral-500">Крым</span>
         </span>
       </div>
 
       <div className="hidden md:flex items-center gap-8">
-        {["Workflow", "Resources", "Pricing"].map((item) => (
+        {["Услуги", "Этапы работы", "FAQ", "Контакты"].map((item) => (
           <a
             key={item}
             href="#"
@@ -27,10 +28,10 @@ const Navbar: React.FC = () => {
 
       <div className="flex items-center gap-6">
         <a
-          href="#"
-          className="text-sm font-medium text-neutral-400 hover:text-white transition-colors"
+          href="tel:+79780000000"
+          className="hidden sm:block text-sm font-medium text-neutral-400 hover:text-white transition-colors"
         >
-          Log In
+          +7 (978) 000-00-00
         </a>
         <button
           type="button"
@@ -50,7 +51,7 @@ const Navbar: React.FC = () => {
             </div>
 
             <span className="relative z-10 text-sm font-medium text-white">
-              Get Access
+              Консультация
             </span>
         </button>
       </div>

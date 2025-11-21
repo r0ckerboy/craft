@@ -1,121 +1,143 @@
 import React from "react";
-import { Battery, Signal, Wifi, Heart, MessageCircle, Share2, Bookmark, MoreHorizontal } from "lucide-react";
+import { Activity, MessageSquare, Brain, FileText, ArrowRight, Check, Shield } from "lucide-react";
 
 const Showcase: React.FC = () => {
   return (
     <div className="z-10 relative w-full max-w-7xl mx-auto px-6 md:px-10 py-24 lg:py-32 border-t border-white/5">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="flex flex-col md:flex-row justify-between md:items-end mb-20 gap-8">
+        <h2 className="text-5xl md:text-6xl font-medium tracking-tighter text-white animate-fade-slide-in" style={{ animationDelay: "0.2s" }}>
+          Каталог экспертиз
+        </h2>
+        <p className="text-neutral-500 max-w-md text-right md:text-left">
+           Какой вид экспертизы усилит вашу позицию?
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         
-        {/* Phone Mockup */}
-        <div className="relative flex justify-center lg:justify-start group perspective-1000 animate-fade-slide-in" style={{ animationDelay: "0.3s" }}>
+        {/* Left Column: Visual "Report" Representation */}
+        <div className="relative flex justify-center lg:justify-start group perspective-1000 animate-fade-slide-in sticky top-24" style={{ animationDelay: "0.3s" }}>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-orange-500/20 blur-[120px] -z-10 rounded-full opacity-40 pointer-events-none"></div>
           
-          <div className="relative w-[340px] h-[680px] bg-[#0a0a0a] border-[6px] border-[#1a1a1a] rounded-[3rem] shadow-2xl overflow-hidden rotate-[-2deg] hover:rotate-0 transition-transform duration-700 ease-out">
-            {/* Dynamic Island */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-50 flex justify-center items-center"></div>
+          <div className="relative w-[340px] h-[580px] bg-[#0a0a0a] border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden hover:rotate-0 transition-transform duration-700 ease-out">
             
-            {/* Status Bar */}
-            <div className="flex justify-between items-center px-6 pt-4 pb-2 text-white text-xs font-medium relative z-40">
-              <span>9:41</span>
-              <div className="flex gap-1.5 items-center">
-                <Signal className="w-3 h-3" />
-                <Wifi className="w-3 h-3" />
-                <Battery className="w-4 h-4" />
-              </div>
+            {/* Header */}
+            <div className="p-6 border-b border-white/5 bg-neutral-900/50">
+               <div className="flex justify-between items-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-black font-bold">
+                     <Shield className="w-5 h-5" />
+                  </div>
+                  <div className="text-[10px] font-mono text-green-500 border border-green-500/30 px-2 py-1 rounded">
+                     ОФИЦИАЛЬНО
+                  </div>
+               </div>
+               <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
+               <div className="h-2 w-32 bg-white/10 rounded"></div>
             </div>
 
-            {/* App Header */}
-            <div className="flex justify-between items-center px-5 py-3 border-b border-white/5 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-30">
-               <div className="flex items-center gap-1">
-                 <span className="font-serif font-bold text-xl tracking-tight text-white">Lumina</span>
-                 <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-               </div>
-               <div className="flex gap-4 text-white">
-                 <Heart className="w-5 h-5" />
-                 <MessageCircle className="w-5 h-5" />
-               </div>
-            </div>
-
-            {/* Stories */}
-            <div className="flex gap-4 px-5 py-4 overflow-x-hidden border-b border-white/5">
-               {['News', 'Updates', 'Verified', 'Feature'].map((item, idx) => (
-                 <div key={idx} className="flex flex-col items-center gap-1.5">
-                   <div className="w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-orange-400 to-pink-600">
-                     <div className="w-full h-full rounded-full bg-black flex items-center justify-center border-2 border-black text-[9px] text-white font-bold">
-                        {idx === 3 ? 'New' : ''}
-                     </div>
-                   </div>
-                   <span className="text-[10px] text-neutral-400">{item}</span>
-                 </div>
-               ))}
-            </div>
-
-            {/* Feed Post */}
-            <div className="flex flex-col pb-20">
-               <div className="flex justify-between items-center px-4 py-3">
-                 <div className="flex items-center gap-2.5">
-                   <div className="w-8 h-8 bg-neutral-800 rounded-full border border-white/10"></div>
-                   <div className="flex flex-col">
-                     <span className="text-xs font-semibold text-white">Lumina_official</span>
-                     <span className="text-[10px] text-neutral-500">Sponsored</span>
-                   </div>
-                 </div>
-                 <MoreHorizontal className="w-5 h-5 text-white" />
+            {/* Document Content Abstract */}
+            <div className="p-6 space-y-6">
+               {/* Section 1 */}
+               <div className="space-y-2">
+                  <div className="text-xs text-neutral-500 uppercase tracking-widest">Исследование</div>
+                  <div className="h-2 w-full bg-white/10 rounded"></div>
+                  <div className="h-2 w-full bg-white/10 rounded"></div>
+                  <div className="h-2 w-2/3 bg-white/10 rounded"></div>
                </div>
 
-               <div className="w-full aspect-square bg-[#111] relative overflow-hidden group/post">
-                 {/* Abstract Shapes */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-orange-500/30 rounded-full blur-2xl"></div>
-                 <div className="flex items-center justify-center h-full">
-                    <div className="w-24 h-24 rounded-2xl bg-white/5 backdrop-blur-md rotate-12 group-hover/post:rotate-6 transition-transform duration-700"></div>
-                    <div className="w-24 h-24 rounded-2xl bg-white/5 backdrop-blur-md -rotate-6 absolute group-hover/post:-rotate-3 transition-transform duration-700 translate-x-4 translate-y-4"></div>
-                 </div>
-                 <div className="absolute bottom-4 left-4 px-3 py-1 bg-black/60 backdrop-blur border border-white/10 rounded-full flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></div>
-                    <span className="text-[10px] font-medium text-white">AI Generated</span>
-                 </div>
+               {/* Chart */}
+               <div className="p-4 bg-white/5 rounded-xl border border-white/5">
+                  <div className="flex items-end justify-between gap-2 h-20">
+                     <div className="w-full bg-orange-500/20 h-[40%] rounded-t"></div>
+                     <div className="w-full bg-orange-500/40 h-[70%] rounded-t"></div>
+                     <div className="w-full bg-orange-500/60 h-[50%] rounded-t"></div>
+                     <div className="w-full bg-orange-500 h-[90%] rounded-t"></div>
+                  </div>
+                  <div className="mt-3 flex justify-between text-[9px] text-neutral-500">
+                     <span>Фактор А</span>
+                     <span>Фактор Б</span>
+                  </div>
                </div>
 
-               <div className="flex bg-gradient-to-b from-orange-400 to-orange-600 px-4 py-2.5 items-center justify-between">
-                 <span className="text-xs font-semibold text-white">Try Lumina for free</span>
-                 <Share2 className="w-4 h-4 text-white" />
-               </div>
-
-               <div className="flex justify-between items-center px-4 py-3">
-                 <div className="flex gap-4 text-white">
-                   <Heart className="w-6 h-6" />
-                   <MessageCircle className="w-6 h-6" />
-                   <Share2 className="w-6 h-6" />
-                 </div>
-                 <Bookmark className="w-6 h-6 text-white" />
-               </div>
-
-               <div className="px-4 pb-4">
-                 <p className="text-sm font-semibold text-white">12,453 likes</p>
-                 <p className="text-sm text-neutral-300 mt-1">
-                   <span className="font-semibold text-white">Lumina_official</span> Transform your workflow with our new Creative Engine 2.0 🚀 <span className="text-blue-400">#MadeWithLumina</span>
-                 </p>
+               {/* Conclusion */}
+               <div className="space-y-2 pt-4 border-t border-white/5">
+                  <div className="text-xs text-orange-500 uppercase tracking-widest font-bold">Выводы эксперта</div>
+                  <div className="p-3 bg-green-500/10 border border-green-500/20 rounded text-xs text-green-200">
+                     Информация подтверждена. Признаков искажения не выявлено.
+                  </div>
                </div>
             </div>
 
-            {/* Home Indicator */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full"></div>
+            {/* Footer */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent">
+               <div className="flex items-center gap-2 text-[10px] text-neutral-500 justify-center">
+                  <Check className="w-3 h-3" />
+                  <span>Подпись эксперта верифицирована</span>
+               </div>
+            </div>
           </div>
         </div>
 
-        {/* Right Column: Stats List */}
-        <div className="flex flex-col justify-center gap-2 pl-0 lg:pl-12">
-           {[
-             { val: "10+", text: "Industries Transformed" },
-             { val: "500 Million", text: "Assets Generated Annually" },
-             { val: "1,800%", text: "Production Efficiency Lift" },
-             { val: "140,000", text: "Active Creative Teams" }
-           ].map((item, idx) => (
-             <div key={idx} className={`flex flex-col gap-2 py-8 ${idx !== 3 ? 'border-b border-white/5' : 'pt-8'} animate-fade-slide-in`} style={{ animationDelay: `${0.4 + idx * 0.1}s` }}>
-               <div className="text-5xl md:text-6xl font-medium text-white tracking-tight">{item.val}</div>
-               <div className="text-lg text-neutral-500 font-medium">{item.text}</div>
-             </div>
-           ))}
+        {/* Right Column: Service List */}
+        <div className="flex flex-col justify-center gap-8 pl-0 lg:pl-12">
+           
+           {/* Service 1 */}
+           <div className="group flex flex-col gap-4 pb-8 border-b border-white/5 animate-fade-slide-in hover:bg-white/5 p-6 rounded-2xl transition-colors duration-300 cursor-pointer" style={{ animationDelay: "0.4s" }}>
+               <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
+                        <Activity className="w-6 h-6" />
+                     </div>
+                     <h3 className="text-2xl font-medium text-white">Полиграф</h3>
+                  </div>
+                  <span className="text-sm font-medium text-neutral-500 group-hover:text-white transition-colors">от 20 000 ₽</span>
+               </div>
+               <p className="text-neutral-400 text-sm leading-relaxed pl-16">
+                  Установление достоверности показаний в уголовных и гражданских делах, когда прямых улик недостаточно. Выявляет скрываемые детали происшествия.
+               </p>
+               <div className="pl-16 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-500 group-hover:translate-x-2 transition-transform">
+                  Подробнее <ArrowRight className="w-3 h-3" />
+               </div>
+           </div>
+
+           {/* Service 2 */}
+           <div className="group flex flex-col gap-4 pb-8 border-b border-white/5 animate-fade-slide-in hover:bg-white/5 p-6 rounded-2xl transition-colors duration-300 cursor-pointer" style={{ animationDelay: "0.5s" }}>
+               <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500">
+                        <MessageSquare className="w-6 h-6" />
+                     </div>
+                     <h3 className="text-2xl font-medium text-white">Лингвистическая</h3>
+                  </div>
+                  <span className="text-sm font-medium text-neutral-500 group-hover:text-white transition-colors">от 15 000 ₽</span>
+               </div>
+               <p className="text-neutral-400 text-sm leading-relaxed pl-16">
+                  Дела о клевете, оскорблениях, экстремизме и защите чести. Анализ текста на наличие негативной информации, утверждений о фактах и угроз.
+               </p>
+               <div className="pl-16 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-500 group-hover:translate-x-2 transition-transform">
+                  Подробнее <ArrowRight className="w-3 h-3" />
+               </div>
+           </div>
+
+           {/* Service 3 */}
+           <div className="group flex flex-col gap-4 pb-8 animate-fade-slide-in hover:bg-white/5 p-6 rounded-2xl transition-colors duration-300 cursor-pointer" style={{ animationDelay: "0.6s" }}>
+               <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
+                        <Brain className="w-6 h-6" />
+                     </div>
+                     <h3 className="text-2xl font-medium text-white">Психологическая</h3>
+                  </div>
+                  <span className="text-sm font-medium text-neutral-500 group-hover:text-white transition-colors">от 15 000 ₽</span>
+               </div>
+               <p className="text-neutral-400 text-sm leading-relaxed pl-16">
+                  Споры о детях (развод, место жительства). Определение привязанности ребенка, влияния родителей и фактов психологического давления.
+               </p>
+               <div className="pl-16 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-green-500 group-hover:translate-x-2 transition-transform">
+                  Подробнее <ArrowRight className="w-3 h-3" />
+               </div>
+           </div>
+
         </div>
 
       </div>
